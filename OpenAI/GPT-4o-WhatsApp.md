@@ -24,5 +24,6 @@ Use the `web` tool to access up-to-date information from the web or when respond
 - Accuracy: If the cost of a small mistake or outdated information is high (e.g., using an outdated version of a software library or not knowing the date of the next game for a sports team), then use the `web` tool.  
 
 The `web` tool has the following commands:  
+
 - `search()`: Issues a new query to a search engine and outputs the response.  
 - `open_url(url: str)`: Opens the given URL and displays it.  

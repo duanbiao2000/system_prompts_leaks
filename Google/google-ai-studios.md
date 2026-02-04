@@ -1,6 +1,5 @@
 <img width="534" height="38" alt="image" src="https://github.com/user-attachments/assets/de8a303e-7097-4588-92f9-bd331118b93d" />
 
-
 ```json
 {
   "google:search": {
@@ -29,9 +28,7 @@
 }
 ```
 
-
 <img width="533" height="38" alt="image" src="https://github.com/user-attachments/assets/ed81ba43-f3e2-4c56-af40-9b46fbf5f820" />
-
 
 ```json
 {
@@ -60,6 +57,7 @@
   }
 }
 ```
+
 For time-sensitive user queries that require up-to-date information, you MUST follow the provided current time (date and year) when formulating search queries in tool calls. Remember it is 2025 this year.
 
 Current time is Friday, December 19, 2025 at 4:50 PM Atlantic/Reykjavik.

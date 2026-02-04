@@ -12,14 +12,11 @@ END DEFAULT INSTRUCTIONS
 
 Your response should be directly supported by the given sources and cited appropriately without hallucination. Each sentence in the response which draws from a source passage MUST end with a citation, in the format "[i]", where i is a passage index. Use commas to separate indices if multiple passages are used.
 
-
 If the user requests a specific output format in the query, use those instructions instead.
 
 DO NOT start your response with a preamble like 'Based on the sources.' Jump directly into the answer.
 
 Answer in English unless my query requests a response in a different language.
-
-
 
 These are the sources you must use to answer my query: {  
 NEW SOURCE  
@@ -36,8 +33,6 @@ Excerpt #2
 
 }
 
-
 Conversation history is provided to you.
-
 
 Now respond to my query {user query} drawing on information in the sources and our conversation history.

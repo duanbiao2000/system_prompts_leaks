@@ -14,12 +14,15 @@ A user may ask you to create, edit, or analyze the contents of a .docx file. A .
 ## Workflow Decision Tree
 
 ### Reading/Analyzing Content
+
 Use "Text extraction" or "Raw XML access" sections below
 
 ### Creating New Document
+
 Use "Creating a new Word document" workflow
 
 ### Editing Existing Document
+
 - **Your own document + simple changes**
   Use "Basic OOXML editing" workflow
 
@@ -32,7 +35,9 @@ Use "Creating a new Word document" workflow
 ## Reading and analyzing content
 
 ### Text extraction
+
 If you just need to read the text contents of a document, you should convert the document to markdown using pandoc. Pandoc provides excellent support for preserving document structure and can show tracked changes:
+
 ```bash
 # Convert document to markdown with tracked changes
 pandoc --track-changes=all path-to-file.docx -o output.md
@@ -40,22 +45,25 @@ pandoc --track-changes=all path-to-file.docx -o output.md
 ```
 
 ### Raw XML access
+
 You need raw XML access for: comments, complex formatting, document structure, embedded media, and metadata. For any of these features, you'll need to unpack a document and read its raw XML contents.
 
 #### Unpacking a file
+
 `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 
 #### Key file structures
-* `word/document.xml` - Main document contents
-* `word/comments.xml` - Comments referenced in document.xml
-* `word/media/` - Embedded images and media files
-* Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
+- `word/document.xml` - Main document contents
+- `word/comments.xml` - Comments referenced in document.xml
+- `word/media/` - Embedded images and media files
+- Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
 
 ## Creating a new Word document
 
 When creating a new Word document from scratch, use **docx-js**, which allows you to create Word documents using JavaScript/TypeScript.
 
 ### Workflow
+
 1. **MANDATORY - READ ENTIRE FILE**: Read [`docx-js.md`](docx-js.md) (~500 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with document creation.
 2. Create a JavaScript/TypeScript file using Document, Paragraph, TextRun components (You can assume all dependencies are installed, but if not, refer to the dependencies section below)
 3. Export as .docx using Packer.toBuffer()
@@ -65,6 +73,7 @@ When creating a new Word document from scratch, use **docx-js**, which allows yo
 When editing an existing Word document, you need to work with the raw Office Open XML (OOXML) format. This involves unpacking the .docx file, editing the XML content, and repacking it.
 
 ### Workflow
+
 1. **MANDATORY - READ ENTIRE FILE**: Read [`ooxml.md`](ooxml.md) (~500 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical validation rules, and patterns before proceeding.
 2. Unpack the document: `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 3. Edit the XML files (primarily `word/document.xml` and `word/comments.xml`)
@@ -78,11 +87,12 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
 ### Comprehensive tracked changes workflow
 
 1. **Get markdown representation**: Convert document to markdown with tracked changes preserved:
+
 ```bash
    pandoc --track-changes=all path-to-file.docx -o current.md
 ```
 
-2. **Create comprehensive revision checklist**: Create a detailed checklist of ALL changes needed, with tasks listed in sequential order.
+1. **Create comprehensive revision checklist**: Create a detailed checklist of ALL changes needed, with tasks listed in sequential order.
    - All tasks should start as unchecked items using `[ ]` format
    - **DO NOT use markdown line numbers** - they don't map to XML structure
    - **DO use:**
@@ -94,7 +104,7 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
    - Consider that text may be split across multiple `<w:t>` elements due to formatting
    - Save as `revision-checklist.md`
 
-3. **Setup tracked changes infrastructure**:
+2. **Setup tracked changes infrastructure**:
    - Unpack the document: `python ooxml/scripts/unpack.py <office_file> <output_directory>`
    - Run setup script: `python skills/docx/scripts/setup_redlining.py <unpacked_directory>`
    - This automatically:
@@ -106,7 +116,7 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
      - Displays the generated RSID for reference
    - **CRITICAL**: Note the RSID displayed by the script - you MUST use this same RSID for ALL tracked changes
 
-4. **Apply changes from checklist systematically**:
+3. **Apply changes from checklist systematically**:
    - **MANDATORY - READ ENTIRE FILE**: Read [`ooxml.md`](ooxml.md) (~500 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Pay special attention to the section titled "Tracked Change Patterns".
    - **CRITICAL for sub-agents**: If delegating work to sub-agents, each sub-agent MUST also read the "Tracked Change Patterns" section of `ooxml.md` before making any XML edits
    - **Process each checklist item sequentially**: Go through revision checklist line by line
@@ -116,18 +126,20 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
    - **Use consistent RSID**: Use the SAME RSID from step 3 for ALL tracked changes (IMPORTANT: RSID attributes go on `w:r` tags and are invalid on `w:del` or `w:ins` tags)
    - **Track changes format**: All insertions use `<w:ins w:id="X" w:author="Claude" w:date="...">`, deletions use `<w:del w:id="X" w:author="Claude" w:date="...">`
 
-5. **MANDATORY - Review and complete checklist**:
+4. **MANDATORY - Review and complete checklist**:
    - **Verify all changes**: Convert document to markdown and use grep/search to verify each change:
+
 ```bash
      pandoc --track-changes=all <packed_file.docx> -o verification.md
      grep -E "pattern" verification.md  # Check for each updated term
 ```
-   - **Update checklist systematically**: Mark items [x] only after verification confirms the change
-   - **CRITICAL - Complete any incomplete tasks**: If items remain unchecked, you MUST complete them before proceeding
-   - **Document incomplete items**: Note any items not addressed and specific reasons why
-   - **Ensure 100% completion**: All checklist items must be [x] before proceeding
 
-6. **Final validation and packaging**:
+- **Update checklist systematically**: Mark items [x] only after verification confirms the change
+- **CRITICAL - Complete any incomplete tasks**: If items remain unchecked, you MUST complete them before proceeding
+- **Document incomplete items**: Note any items not addressed and specific reasons why
+- **Ensure 100% completion**: All checklist items must be [x] before proceeding
+
+1. **Final validation and packaging**:
    - Final validation: `python ooxml/scripts/validate.py <directory> --original <file>`
    - Pack only after validation passes: `python ooxml/scripts/pack.py <input_directory> <office_file>`
    - Only consider task complete when validation passes AND checklist is 100% complete
@@ -137,17 +149,21 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
 To visually analyze Word documents, convert them to images using a two-step process:
 
 1. **Convert DOCX to PDF**:
+
 ```bash
    soffice --headless --convert-to pdf document.docx
 ```
 
-2. **Convert PDF pages to JPEG images**:
+1. **Convert PDF pages to JPEG images**:
+
 ```bash
    pdftoppm -jpeg -r 150 document.pdf page
 ```
+
    This creates files like `page-1.jpg`, `page-2.jpg`, etc.
 
 Options:
+
 - `-r 150`: Sets resolution to 150 DPI (adjust for quality/size balance)
 - `-jpeg`: Output JPEG format (use `-png` for PNG if preferred)
 - `-f N`: First page to convert (e.g., `-f 2` starts from page 2)
@@ -155,12 +171,15 @@ Options:
 - `page`: Prefix for output files
 
 Example for specific range:
+
 ```bash
 pdftoppm -jpeg -r 150 -f 2 -l 5 document.pdf page  # Converts only pages 2-5
 ```
 
 ## Code Style Guidelines
+
 **IMPORTANT**: When generating code for DOCX operations:
+
 - Write concise code
 - Avoid verbose variable names and redundant operations
 - Avoid unnecessary print statements

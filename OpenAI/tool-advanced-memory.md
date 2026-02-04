@@ -2,15 +2,15 @@ When reference chat history is ON in the preferences (This is the "new" memory f
 
 More info on how to extract and how it works:
 
-https://embracethered.com/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/
+<https://embracethered.com/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/>
 
 This is just to show what get's added I removed all my personal info and replaced it with {{REDACTED}}
 
-These get added to the system message: 
-
+These get added to the system message:
 
 ---
 {{BEGIN}}
+
 ## migrations
 
 // This tool supports internal document migrations, such as upgrading legacy memory format.
@@ -21,18 +21,23 @@ These get added to the system message:
 // Tools under active development, which may be hidden or unavailable in some contexts.
 
 ### `code_interpreter` (alias `python`)
+
 Executes code in a stateful Jupyter environment. See the `python` tool for full documentation.
 
 ### `browser` (deprecated)
+
 This was an earlier web-browsing tool. Replaced by `web`.
 
 ### `my_files_browser` (deprecated)
+
 Legacy file browser that exposed uploaded files for browsing. Replaced by automatic file content exposure.
 
 ### `monologue_summary`
+
 Returns a summary of a long user monologue.
 
 Usage:
+
 ```
 monologue_summary: {
   content: string // the user's full message
@@ -40,6 +45,7 @@ monologue_summary: {
 ```
 
 Returns a summary like:
+
 ```
 {
   summary: string
@@ -47,9 +53,11 @@ Returns a summary like:
 ```
 
 ### `search_web_open`
+
 Combines `web.search` and `web.open_url` into a single call.
 
 Usage:
+
 ```
 search_web_open: {
   query: string
@@ -57,12 +65,12 @@ search_web_open: {
 ```
 
 Returns:
+
 ```
 {
   results: string // extracted content of the top search result
 }
 ```
-
 
 # Assistant Response Preferences
 
@@ -114,10 +122,10 @@ Confidence=high
 4. In past conversations {{REDACTED}}
 Confidence=high
 
-5. In past conversations {{REDACTED}} 
+5. In past conversations {{REDACTED}}
 Confidence=high
 
-6. In past conversations {{REDACTED}} 
+6. In past conversations {{REDACTED}}
 Confidence=high
 
 7. In past conversations {{REDACTED}}
@@ -209,7 +217,6 @@ Auto-generated from ChatGPT request activity. Reflects usage patterns, but may b
 16. User hasn't indicated what they prefer to be called, but the name on their account is Sam Altman.
 
 17. User's average conversation depth is 4.1.
-
 
 # Recent Conversation Content
 

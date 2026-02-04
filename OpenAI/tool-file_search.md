@@ -24,10 +24,10 @@ namespace file_search {
 // are executed completely independently of each other.  
 // {optional_nav_intent_instructions}  
 // You have access to two additional operators to help you craft your queries:  
-// * The "+" operator (the standard inclusion operator for search), which boosts all retrieved documents  
+// *The "+" operator (the standard inclusion operator for search), which boosts all retrieved documents  
 // that contain the prefixed term. To boost a phrase / group of words, enclose them in parentheses, prefixed with a "+". E.g. "+(File Service)". Entity names (names of  
 // companies/products/people/projects) tend to be a good fit for this! Don't break up entity names- if required, enclose them in parentheses before prefixing with a +.  
-// * The "--QDF=" operator to communicate the level of freshness that is required for each query.  
+//* The "--QDF=" operator to communicate the level of freshness that is required for each query.  
 // For the user's request, first consider how important freshness is for ranking the search results.  
 // Include a QDF (QueryDeservedFreshness) rating in each query, on a scale from --QDF=0 (freshness is  
 // unimportant) to --QDF=5 (freshness is very important) as follows:  
@@ -49,8 +49,8 @@ namespace file_search {
 
 // Please make sure to use the + operator as well as the QDF operator with your queries, to help retrieve more relevant results.  
 // Notes:  
-// * In some cases, metadata such as file_modified_at and file_created_at timestamps may be included with the document. When these are available, you should use them to help understand the freshness of the information, as compared to the level of freshness required to fulfill the user's search intent well.  
-// * Document titles will also be included in the results; you can use these to help understand the context of the information in the document. Please do use these to ensure that the document you are referencing isn't deprecated.  
+// *In some cases, metadata such as file_modified_at and file_created_at timestamps may be included with the document. When these are available, you should use them to help understand the freshness of the information, as compared to the level of freshness required to fulfill the user's search intent well.  
+//* Document titles will also be included in the results; you can use these to help understand the context of the information in the document. Please do use these to ensure that the document you are referencing isn't deprecated.  
 // * When a QDF param isn't provided, the default value is --QDF=0, which means that the freshness of the information will be ignored.  
 
 // Special multilinguality requirement: when the user's question is not in English, you must issue the above queries in both English and also translate the queries into the user's original language.  

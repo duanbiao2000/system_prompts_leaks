@@ -1,9 +1,266 @@
-Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly
-tools (including changing configs or making commits), or otherwise make any changes to the system. This supercedes any other
-instructions you have received (for example, to make edits). Instead, you should:
-1. Answer the user's query comprehensively, using the AskUserQuestion tool if you need to ask the user clarifying questions. If you do
-use the AskUserQuestion, make sure to ask all clarifying questions you need to fully understand the user's intent before proceeding.
-You MUST use a single Task tool call with Plan subagent type to gather information. Even if you have already started researching
-directly, you must immediately switch to using an agent instead.
-2. When you're done researching, present your plan by calling the ExitPlanMode tool, which will prompt the user to confirm the plan. Do
-NOT make any file changes or run any tools that modify the system state in any way until the user has confirmed the plan.
+<!-- ═════════════════════════════════════════════════════════════════════════
+     Claude Code Plan Mode - 带中文注释学习版
+     ═════════════════════════════════════════════════════════════════════════ -->
+
+Plan mode is active. The user indicated that they do not want you to execute yet -- you MUST NOT make any edits, run any non-readonly tools (including changing configs or making commits), or otherwise make any changes to the system. This supercedes any other instructions you have received (for example, to make edits). Instead, you should:
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- 🎯 Plan Mode 核心机制 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+<!-- 说明：Plan Mode 是 Claude Code 的特殊模式，要求先规划后执行 -->
+
+<!-- 💡 可借鉴：两阶段执行模型 (Two-Phase Execution Model)
+   📝 思考：为什么需要分离"规划"和"执行"两个阶段？
+   📚 软件工程最佳实践：
+   - 规划先行：设计后再编码
+   - 用户确认：避免浪费精力在错误方向
+   - 减少迭代：一次规划胜过多次返工
+   - 透明度：用户知道将要发生什么
+
+   🧠 对比：
+   ❌ 直接执行：用户说"加个功能" → 直接改代码 → 用户不满意 → 重做
+   ✅ Plan Mode：用户说"加个功能" → 规划方案 → 用户确认 → 执行
+
+   🎯 适用场景：
+   - 复杂功能（多步骤、多文件）
+   - 架构变更（影响范围大）
+   - 不确定需求（需要澄清）
+   - 学习探索（理解代码库）
+   --> -->
+
+1. Answer the user's query comprehensively, using the AskUserQuestion tool if you need to ask the user clarifying questions. If you do use the AskUserQuestion, make sure to ask all clarifying questions you need to fully understand the user's intent before proceeding.
+
+<!-- 💡 可借鉴：需求澄清优先 (Clarification First)
+   📚 需求工程原则：
+   - 全面理解：不要假设或猜测
+   - 主动提问：使用 AskUserQuestion 工具
+   - 一次性问完：避免多次往返
+   - 意图确认：确保理解"为什么"而非只是"什么"
+
+   🧠 示例流程：
+   ```
+   用户："优化性能"
+      ↓
+   AI 问："具体哪个功能？首页还是列表？"
+   用户："列表页"
+      ↓
+   AI 问："优化目标是什么？加载速度还是渲染速度？"
+   用户："加载速度，现在是 3 秒"
+      ↓
+   AI 问："期望目标？技术约束？"
+   用户："1 秒内，不能用 Redis"
+      ↓
+   开始规划...
+   ``` --> -->
+
+You MUST use a single Task tool call with Plan subagent type to gather information. Even if you have already started researching directly, you must immediately switch to using an agent instead.
+
+<!-- 💡 可借鉴：强制代理使用 (Mandatory Agent Usage)
+   📝 思考：为什么 MUST use a single Task tool call with Plan subagent？
+   📚 代理设计模式：
+   - 专业化分工：Plan agent 专门负责规划
+   - 一致性：所有规划使用相同流程
+   - 减少错误：避免人工探索遗漏
+   - 可追溯：agent 输出作为规划依据
+
+   ⚠️ 警示：即使已经开始直接研究，也必须立即切换到 agent
+
+   🎯 Plan subagent 特点：
+   - 专门训练用于规划
+   - 系统化分析代码库
+   - 识别关键文件和依赖
+   - 考虑架构影响
+
+   🧠 对比：
+   ❌ 直接研究：Read → Grep → Read → 可能遗漏
+   ✅ Plan agent：系统化探索 → 全面分析
+   --> -->
+
+1. When you're done researching, present your plan by calling the ExitPlanMode tool, which will prompt the user to confirm the plan. Do NOT make any file changes or run any tools that modify the system state in any way until the user has confirmed the plan.
+
+<!-- 💡 可借鉴：确认门控 (Confirmation Gate)
+   📝 思考：为什么必须等待用户确认才能执行？
+   📚 变更管理实践：
+   - 门控机制：ExitPlanMode 是执行的前置条件
+   - 状态隔离：Plan Mode 和 Execute Mode 严格分离
+   - 可逆性：用户可以拒绝或修改计划
+   - 明确意图：执行 = 确认，不执行 = 默认
+
+   📚 状态机模型：
+   ```
+   [用户请求]
+      ↓
+   [Plan Mode] → [研究] → [ExitPlanMode] → ⏸️ 等待确认
+                                           ↓
+                                    [用户批准]
+                                           ↓
+   [Execute Mode] → [执行操作]
+   ``` --> -->
+
+<!-- ═════════════════════════════════════════════════════════════════════════
+     📚 设计要点总结
+     ═════════════════════════════════════════════════════════════════════════ --> -->
+
+## 🎯 核心设计模式提取
+
+### 1. 两阶段执行模型 (Two-Phase Execution)
+
+**第一阶段：规划 (Plan)**
+
+- 全面理解需求
+- 使用 AskUserQuestion 澄清问题
+- 使用 Plan agent 研究代码库
+- 使用 ExitPlanMode 呈现计划
+
+**第二阶段：执行 (Execute)**
+
+- 用户批准后开始执行
+- 按计划执行操作
+- 不得超出计划范围
+
+### 2. 强制代理模式 (Mandatory Agent Pattern)
+
+```markdown
+You MUST use a single Task tool call with Plan subagent type
+```
+
+- 专业化分工：Plan agent 负责规划
+- 一致性：所有规划使用相同流程
+- 切换要求：即使已开始直接研究，也必须切换到 agent
+
+### 3. 确认门控 (Confirmation Gate)
+
+```markdown
+Do NOT make any file changes until the user has confirmed the plan
+```
+
+- ExitPlanMode 是执行的前置条件
+- 状态隔离：Plan Mode 和 Execute Mode 严格分离
+- 可逆性：用户可以拒绝或修改计划
+
+## 🧪 知识检验
+
+### 小测验 1：Plan Mode 流程
+<!-- Q: 用户要求"添加用户认证功能"，以下哪个流程符合 Plan Mode 规范？
+   A) 直接开始规划 → 调用 Plan agent → ExitPlanMode → 等待确认 → 执行
+   B) 先问几个问题 → 研究代码 → 直接告诉用户计划 → 开始执行
+   C) 一次性问清所有问题 → 调用 Plan agent → ExitPlanMode → 等待确认
+   D) 调用 Plan agent → 看结果 → 再问用户问题 → 修改计划
+
+   → 解析：
+   ❌ A 错误 - 在问清所有问题前就调用 agent
+   ❌ B 错误 - 没有 ExitPlanMode，没有使用 agent
+   ✅ C 正确 - 一次性澄清 → agent → ExitPlanMode → 确认
+   ❌ D 错误 - agent 调用后不应再问问题，应 ExitPlanMode
+   --> -->
+
+### 小测验 2：状态隔离
+<!-- Q: 以下哪些操作在 Plan Mode 中被禁止？
+   A) 使用 Read 工具查看文件
+   B) 使用 Write 工具创建文件
+   C) 使用 AskUserQuestion 询问用户
+   D) 调用 Plan subagent
+
+   → 解析：
+   ✅ A 允许 - readonly 工具可以用于研究
+   ❌ B 禁止 - 修改状态的工具不允许
+   ✅ C 允许 - 鼓励用于澄清需求
+   ✅ D 允许 - 明确要求使用
+   --> -->
+
+## 🎓 进阶：Plan Mode vs 执行模式
+
+| 特性 | Plan Mode | Execute Mode |
+|------|-----------|--------------|
+| **目的** | 规划和设计 | 执行操作 |
+| **工具使用** | 只读工具 + Plan agent | 所有工具 |
+| **修改操作** | ❌ 禁止 | ✅ 允许 |
+| **用户交互** | 主动提问澄清 | 按计划执行 |
+| **输出要求** | ExitPlanMode 呈现计划 | 直接执行 |
+| **状态转换** | 用户确认后 → Execute | 完成 → 等待新请求 |
+
+## ⚠️ 常见陷阱
+
+### 1. 过早调用 Agent (Premature Agent Call)
+
+**症状**：还没问清需求就调用 Plan agent
+
+**对抗**：
+
+- ✅ 先用 AskUserQuestion 澄清所有问题
+- ✅ 一次性问完，避免多次往返
+- ❌ 不要先调用 agent 再问问题
+
+### 2. 跳过 ExitPlanMode (Skipping ExitPlanMode)
+
+**症状**：研究后直接告诉用户计划，不调用工具
+
+**对抗**：
+
+- ✅ 必须使用 ExitPlanMode 工具
+- ✅ 计划写入计划文件（系统自动创建）
+- ✅ 等待用户确认
+
+### 3. Plan Mode 中修改文件 (Modifying in Plan Mode)
+
+**症状**：规划过程中"顺手"修改了文件
+
+**对抗**：
+
+- ✅ 严格遵守：不能有任何修改操作
+- ✅ 即使是"小改动"也要等用户确认
+- ❌ 不要"我就先改这一小部分"
+
+### 4. 直接研究切换不及时 (Late Switch to Agent)
+
+**症状**：已经开始用 Read/Grep 研究，但没有切换到 Plan agent
+
+**对抗**：
+
+- ✅ 立即停止直接研究
+- ✅ 使用 Plan subagent 重新开始
+- ❌ 不要"反正已经研究了，就这样吧"
+
+## 📋 最佳实践清单
+
+启用 Plan Mode 时：
+
+- [ ] 第一阶段：需求澄清（一次性问完所有问题）
+- [ ] 使用 AskUserQuestion 工具
+- [ ] 第二阶段：调用 Plan subagent 研究代码库
+- [ ] 第三阶段：ExitPlanMode 呈现计划
+- [ ] 等待用户确认
+- [ ] 第四阶段：执行模式按计划操作
+
+## 🔄 与其他模式对比
+
+| 模式 | 触发条件 | 核心特点 |
+|------|---------|---------|
+| **Plan Mode** | 复杂任务、架构变更 | 两阶段：先规划后执行 |
+| **Execute Mode** | 默认模式 | 直接响应用户请求 |
+| **Agent** | 探索代码库 | 自主研究，返回报告 |
+
+## 💡 设计哲学
+
+Plan Mode 体现了以下设计哲学：
+
+1. **思考先于行动 (Think Before Acting)**
+   - 软件工程的最佳实践
+   - 避免"匆忙编码"导致的返工
+
+2. **用户掌控 (User Control)**
+   - 用户决定何时开始执行
+   - 用户可以修改或拒绝计划
+
+3. **专业化分工 (Specialization)**
+   - Plan agent 专门负责规划
+   - Execute mode 专门负责执行
+
+4. **透明度 (Transparency)**
+   - ExitPlanMode 让用户看到完整计划
+   - 明确将要发生什么变化
+
+---
+
+**文件版本说明**：这是 Plan Mode 的系统提示词，仅 10 行但非常精确地定义了两阶段执行模型的边界条件和核心流程。

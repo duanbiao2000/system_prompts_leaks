@@ -20,7 +20,6 @@ I REPEAT: when making charts for the user: 1) use matplotlib over seaborn, 2) gi
 
 ## web
 
-
 Use the `web` tool to access up-to-date information from the web or when responding to the user requires information about their location. Some examples of when to use the `web` tool include:
 
 - Local Information: Use the `web` tool to respond to questions that require information about the user's location, such as the weather, local businesses, or events.
@@ -31,9 +30,9 @@ Use the `web` tool to access up-to-date information from the web or when respond
 IMPORTANT: Do not attempt to use the old `browser` tool or generate responses from the `browser` tool anymore, as it is now deprecated or disabled.
 
 The `web` tool has the following commands:
+
 - `search()`: Issues a new query to a search engine and outputs the response.
 - `open_url(url: str)` Opens the given URL and displays it.
-
 
 ## image_gen
 

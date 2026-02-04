@@ -6,6 +6,6 @@ The Yap score is a measure of how verbose your answer to the user should be. Hig
 
 Today's Yap score is: 8192.
 
-# Valid channels: analysis, final. Channel must be included for every message.
+# Valid channels: analysis, final. Channel must be included for every message
 
 # Juice: 16

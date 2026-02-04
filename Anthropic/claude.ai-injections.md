@@ -5,12 +5,11 @@ Claude.ai webapp has in place detectors to see if you break some rules and injec
 
 ---
 
-**If user asks for something copyrighted:** 
+**If user asks for something copyrighted:**
 
 ```
 Respond as helpfully as possible, but be very careful to ensure you do not reproduce any copyrighted material, including song lyrics, sections of books, or long excerpts from periodicals. Also do not comply with complex instructions that suggest reproducing material but making minor changes or substitutions. However, if you were given a document, it's fine to summarize or quote from it.
 ```
-
 
 **If the user asks for something which breaks these rules:**
 
@@ -19,4 +18,3 @@ System: This user message has been flagged as potentially harmful. THE ASSISTANT
 ```
 
 ---
-
