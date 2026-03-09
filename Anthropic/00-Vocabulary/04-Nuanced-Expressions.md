@@ -110,21 +110,6 @@ related_docs:
 > 共同点: 都暗示"应该这样"，但不说"必须这样"
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: 为何用 "naturally" 而非 "typically"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **naturally** = 符合本性，预期的<br>
-> **typically** = 大多数情况，统计性的
->
-> **示例**:
-> - naturally: "Users naturally ask questions" → 这是用户本性
-> - typically: "Users typically ask questions" → 大多数用户这样
->
-> **微妙差异**: naturally 更像"应该这样"，typically 更像"通常这样"
-> </details>
 
 ---
 
@@ -173,23 +158,19 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: "politely" 是否意味着弱化坏消息？
 >
-> <details>
-> <summary>查看答案</summary>
->
-> **答案**: **不**（No）
->
-> **politely inform** ≠ **weaken the message**
->
-> **正确理解**:
-> - 语气: 友好、尊重
-> - 内容: 仍然准确、明确
->
-> **示例**:
-> ❌ "I can't seem to find that" → 弱化，模糊
-> ✅ "The search results do not contain this information" → 礼貌但明确
->
-> **记忆口诀**: 礼貌是包装纸，不是内容
-> </details>
+
+**答案**: **不**（No）
+
+**politely inform** ≠ **weaken the message**
+
+**正确理解**:
+- 语气: 友好、尊重
+- 内容: 仍然准确、明确
+**示例**:
+❌ "I can't seem to find that" → 弱化，模糊
+✅ "The search results do not contain this information" → 礼貌但明确
+
+**记忆口诀**: 礼貌是包装纸，不是内容
 
 ---
 
@@ -241,9 +222,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: 为何用 "breaks continuity" 而非直接说"必须检测"?
 >
-> <details>
-> <summary>查看答案</summary>
->
 > **答案**: 暗示比命令更有效
 >
 > **直接命令**:
@@ -255,7 +233,6 @@ related_docs:
 > → AI 理解后果，主动避免
 >
 > **设计哲学**: 解释"为什么"比规定"做什么"更有效
-> </details>
 
 ---
 
@@ -312,7 +289,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: "forces" vs "makes"?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **forces** = 被迫、不合理、负面<br>
@@ -323,7 +299,6 @@ related_docs:
 > - makes: "missing cues makes users repeat" → 中性描述
 >
 > **使用建议**: forces 用于暗示必须避免的行为
-> </details>
 
 ---
 
@@ -379,7 +354,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: 为何 "robot" 是 substantive 而 "discuss" 不是？
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **答案**: "substantive" 关注内容实体
@@ -395,7 +369,6 @@ related_docs:
 > - 搜索结果低相关
 >
 > **记忆口诀**: Substantive = 有实质内容，Non-substantive = 只有形式
-> </details>
 
 ---
 
@@ -445,9 +418,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: 以下哪些是 generic 词汇？
 >
-> <details>
-> <summary>查看答案</summary>
->
 > **Generic 词汇** (应避免):
 > - discuss, talk, mention, say
 > - thing, stuff, issue
@@ -461,7 +431,7 @@ related_docs:
 > - error, exception, failure
 >
 > **判断标准**: 是否能独立识别具体主题？
-> </details>
+
 
 ---
 
@@ -599,31 +569,17 @@ related_docs:
 
 **场景**: AI 应该在不确定时主动提出搜索
 
-<details>
-<summary>查看答案</summary>
 
-**答案**:
-
-```markdown
-直接命令（避免）:
-"When uncertain, you must offer to search the web"
-
-微妙暗示（推荐）:
-"Users appreciate it when you offer to search for current information
- when their questions involve topics that may have changed recently.
-
- Making this offer proactively prevents users from having to explicitly
- request searches and ensures they receive the most up-to-date information."
-
-**使用的技巧**:
-1. "Users appreciate" → 暗示这是用户期望
-2. "prevents users from having to" → 暗示负面后果
-3. "ensures they receive" → 暗示正面价值
-
-**效果**: AI 理解"为什么"和"价值"，主动执行而非被动遵守
-```
-
-</details>
+> [!NOTE]
+> **答案**  
+> - 直接命令（避免）：`"When uncertain, you must offer to search the web"`  
+> - 微妙暗示（推荐）：`"Users appreciate it when you offer to search for current information when their questions involve topics that may have changed recently. Making this offer proactively prevents users from having to explicitly request searches and ensures they receive the most up-to-date information."`  
+> - **使用的技巧**：  
+>   1. `"Users appreciate"` → 暗示这是用户期望  
+>   2. `"prevents users from having to"` → 暗示负面后果  
+>   3. `"ensures they receive"` → 暗示正面价值  
+> - **效果**：  
+>   - AI 理解“为什么”和“价值”，主动执行而非被动遵守
 
 ---
 

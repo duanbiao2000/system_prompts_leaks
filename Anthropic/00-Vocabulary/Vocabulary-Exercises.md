@@ -53,18 +53,17 @@ related_docs:
 
 > [!question] Q1: "appropriately cite" vs "cite correctly"?
 >
-> <details>
+
 > <summary>查看答案</summary>
 >
 > **appropriately** = 正确性 + 语境适配 + 风格一致<br>
 > **correctly** = 仅格式正确性
 >
 > **关键差异**: appropriately 涵盖适配性和风格，correctly 仅关注准确性
-> </details>
+
 
 > [!question] Q2: strategically vs carefully?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **strategically** = 策略决策，涉及权衡和目标考量<br>
@@ -73,35 +72,32 @@ related_docs:
 > **使用场景**:
 > - strategically: "decide strategically how many searches to run"
 > - carefully: "carefully analyze the search results"
-> </details>
+
 
 > [!question] Q3: thoroughly vs comprehensively?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **thoroughly** = 强调过程的完整性（不遗漏）<br>
 > **comprehensively** = 强调范围的广泛性（覆盖多方面）
 >
 > **组合使用**: "thoroughly and comprehensively" = 既完整又全面
-> </details>
+
 
 > [!question] Q4: naturally vs typically?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **naturally** = 符合本性，预期的<br>
 > **typically** = 大多数情况，统计性的
 >
 > **微妙差异**: naturally 更像"应该这样"，typically 更像"通常这样"
-> </details>
+
 
 ### 第2组: 语气控制词 | Tone Controllers
 
 > [!question] Q5: MUST vs strongly prefer?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **MUST** = 100% 强制，无例外<br>
@@ -110,11 +106,10 @@ related_docs:
 > **示例**:
 > - MUST: "MUST cite sources" → 不引用 = 违规
 > - strongly: "strongly consider thinking" → 不思考可能也可以
-> </details>
+
 
 > [!question] Q6: CRITICAL vs IMPORTANT?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **CRITICAL** = 必须遵守，违规严重<br>
@@ -123,35 +118,32 @@ related_docs:
 > **记忆口诀**:
 > - CRITICAL → 生存问题
 > - IMPORTANT → 质量问题
-> </details>
+
 
 > [!question] Q7: NEVER vs do not?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **NEVER** = 绝对禁止，零容忍<br>
 > **do not** = 强烈禁止，极少例外
 >
 > **记忆提示**: NEVER = 大写强调 = 零容忍
-> </details>
+
 
 > [!question] Q8: should vs may?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **should** = 建议遵循，默认应该<br>
 > **may** = 可以选择，允许但不强制
 >
 > **强制程度**: should (70%) > may (30%)
-> </details>
+
 
 ### 第3组: 边界词 | Boundary Words
 
 > [!question] Q9: unless vs except if?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **unless** = "如果不"（单一条件）<br>
@@ -160,11 +152,10 @@ related_docs:
 > **示例**:
 > - unless asked: 如果不问就不做
 > - except if asked: 除了问的情况都不做
-> </details>
+
 
 > [!question] Q10: at most vs maximum?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **at most** = 软性上限，建议性<br>
@@ -173,11 +164,10 @@ related_docs:
 > **使用场景**:
 > - at most: 最佳实践、资源优化
 > - maximum: 安全限制、硬约束
-> </details>
+
 
 > [!question] Q11: within vs under?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **within** = ≤ (小于等于，包括边界)<br>
@@ -186,24 +176,22 @@ related_docs:
 > **示例**:
 > - within 15: 15词可以
 > - under 15: 最多14词
-> </details>
+
 
 > [!question] Q12: approximately vs exactly?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **approximately** = 大约，允许±20%浮动<br>
 > **exactly** = 精确，不能偏离
 >
 > **系统提示词选择**: approximately 更灵活，exact 仅在必要时使用
-> </details>
+
 
 ### 第4组: 微妙表达 | Nuanced Expressions
 
 > [!question] Q13: "breaks continuity" 的隐含意义？
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **答案**: 暗示"必须避免"的负面后果
@@ -213,11 +201,10 @@ related_docs:
 > - 暗示后果: "Missing cues breaks continuity"
 >
 > **效果**: AI 理解"为什么"，主动避免
-> </details>
+
 
 > [!question] Q14: politely 的作用？
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **答案**: 礼貌地传达不受欢迎的内容
@@ -227,11 +214,10 @@ related_docs:
 > **示例**:
 > - ❌ 过度委婉: "I'm afraid I couldn't find..."
 > - ✅ 礼貌但明确: "The search results do not contain this information"
-> </details>
+
 
 > [!question] Q15: substantive vs generic?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **substantive** = 有实质内容的<br>
@@ -240,64 +226,59 @@ related_docs:
 > **示例**:
 > - Substantive: "robot", "OAuth", "machine learning"
 > - Generic: "discuss", "thing", "problem"
-> </details>
+
 
 > [!question] Q16: forces vs makes?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **forces** = 被迫、不合理、负面<br>
 > **makes** = 导致、中性、描述性
 >
 > **使用**: forces 用于暗示必须避免的行为
-> </details>
+
 
 ### 第5组: 操作指导词 | Action Guides
 
 > [!question] Q17: Extract vs Get?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **Extract** = 识别并筛选后获取<br>
 > **Get** = 直接获取，无筛选
 >
 > **系统提示词选择**: Extract 更精确
-> </details>
+
 
 > [!question] Q18: Avoid vs Don't?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **Avoid** = 主动识别并绕开低质量<br>
 > **Don't** = 简单禁止某行为
 >
 > **差异**: Avoid 暗示有更好的选择
-> </details>
+
 
 > [!question] Q19: Synthesize vs Combine?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **Synthesize** = 认知整合，理解后创造统一输出<br>
 > **Combine** = 物理组合，简单拼接
 >
 > **质量**: Synthesize 产生更连贯的输出
-> </details>
+
 
 > [!question] Q20: Acknowledge vs Mention?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **Acknowledge** = 承认并透明化来源<br>
 > **Mention** = 简单提及某事
 >
 > **价值**: Acknowledge 建立信任
-> </details>
+
 
 ---
 

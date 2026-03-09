@@ -118,7 +118,7 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Extract vs "get"?
 >
-> <details>
+
 > <summary>查看答案</summary>
 >
 > **Extract** = 识别并筛选后获取<br>
@@ -129,7 +129,7 @@ related_docs:
 > - Get: "Get keywords from query" → 获取所有关键词
 >
 > **系统提示词选择**: Extract 更精确，避免获取低质量信息
-> </details>
+
 
 ---
 
@@ -183,9 +183,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Avoid vs "Don't"?
 >
-> <details>
-> <summary>查看答案</summary>
->
 > **Avoid** = 主动识别并绕开低质量<br>
 > **Don't** = 简单禁止某行为
 >
@@ -194,7 +191,7 @@ related_docs:
 > - Don't: "Don't use generic keywords" → 只是禁止使用
 >
 > **关键差异**: Avoid 暗示有更好的选择，Don't 只是约束
-> </details>
+
 
 ---
 
@@ -251,7 +248,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Prioritize vs "focus on"?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **Prioritize** = 明确排序，A > B<br>
@@ -262,7 +258,7 @@ related_docs:
 > - Focus on: "Focus on A" → 关注 A，B 未提及
 >
 > **系统提示词选择**: Prioritize 更明确，包含备选方案
-> </details>
+
 
 ---
 
@@ -319,7 +315,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Synthesize vs "combine"?
 >
-> <details>
 > <summary>查看答案</summary>
 >
 > **Synthesize** = 认知整合，理解后创造统一输出<br>
@@ -330,7 +325,7 @@ related_docs:
 > - Synthesize: "Synthesize results" → 理解后整合
 >
 > **质量差异**: Synthesize 产生更连贯、更有价值的输出
-> </details>
+
 
 ---
 
@@ -387,9 +382,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Acknowledge vs "mention"?
 >
-> <details>
-> <summary>查看答案</summary>
->
 > **Acknowledge** = 承认并透明化来源<br>
 > **Mention** = 简单提及某事
 >
@@ -398,7 +390,7 @@ related_docs:
 > - Acknowledge: "Drawing from our past conversation..." → 透明化来源
 >
 > **关键差异**: Acknowledge 暗示诚实和透明，Mention 只是信息陈述
-> </details>
+
 
 ---
 
@@ -453,7 +445,7 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Consider vs "use"?
 >
-> <details>
+
 > <summary>查看答案</summary>
 >
 > **Consider** = 评估后决定是否使用<br>
@@ -464,7 +456,7 @@ related_docs:
 > - Consider: "Consider using thinking blocks" → 评估后决定
 >
 > **系统提示词选择**: Consider 保留 AI 的判断力和灵活性
-> </details>
+
 
 ---
 
@@ -500,9 +492,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Use vs "utilize"?
 >
-> <details>
-> <summary>查看答案</summary>
->
 > **Use** = 直接使用，中性<br>
 > **Utilize** = 充分利用，正式
 >
@@ -511,7 +500,7 @@ related_docs:
 > - Utilize: "Utilize all available features" → 充分利用所有功能
 >
 > **系统提示词选择**: Use 更简洁自然
-> </details>
+
 
 ---
 
@@ -568,9 +557,6 @@ related_docs:
 > [!question] 闪卡练习 | Flashcard Exercise
 > **Q**: Offer vs "suggest"?
 >
-> <details>
-> <summary>查看答案</summary>
->
 > **Offer** = 提议执行，等待确认<br>
 > **Suggest** = 建议考虑，不强求
 >
@@ -579,7 +565,7 @@ related_docs:
 > - Suggest: "Suggest searching" → 我建议搜索
 >
 > **系统提示词选择**: Offer 更明确，包含执行意图
-> </details>
+
 
 ---
 
@@ -652,37 +638,29 @@ related_docs:
 
 **场景**: 用户问"我们之前讨论了什么？"
 
-<details>
-<summary>查看答案</summary>
-
-**答案**:
-
-```markdown
-操作序列:
-
-1. **识别意图** (Consider)
-> "Consider whether this references past conversations"
-
-2. **提取关键词** (Extract)
-> "Extract substantive keywords: 'discussed', 'before'"
-
-3. **执行搜索** (Use)
-> "Use conversation_search with extracted keywords"
-
-4. **确认来源** (Acknowledge)
-> "Acknowledge when drawing from past conversations"
-
-5. **综合信息** (Synthesize)
-> "Synthesize information naturally"
-
-6. **响应** (Respond)
-> "Respond with synthesized information and links"
-
-**设计原则**: 操作序列 = 识别 → 提取 → 执行 → 确认 → 综合 → 响应
-```
-
-</details>
-
+> [!success] 答案
+>
+> **操作序列**:
+>
+> 1. **识别意图** (Consider)
+>> "Consider whether this references past conversations"
+>
+> 2. **提取关键词** (Extract)
+>> "Extract substantive keywords: 'discussed', 'before'"
+>
+> 3. **执行搜索** (Use)
+>> "Use conversation_search with extracted keywords"
+>
+> 4. **确认来源** (Acknowledge)
+>> "Acknowledge when drawing from past conversations"
+>
+> 5. **综合信息** (Synthesize)
+>> "Synthesize information naturally"
+>
+> 6. **响应** (Respond)
+>> "Respond with synthesized information and links"
+>
+> **设计原则**: 操作序列 = 识别 → 提取 → 执行 → 确认 → 综合 → 响应
 ---
 
 ### 练习 3: 指令改进 | Instruction Improvement

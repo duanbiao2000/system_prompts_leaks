@@ -103,24 +103,6 @@ related_docs:
 > | 降低所有规则的重要性 | 突出真正关键的规则 |
 > | AI 难以判断优先级 | 明确最高优先级 |
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: CRITICAL vs IMPORTANT?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **CRITICAL** = 必须遵守，违规严重<br>
-> **IMPORTANT** = 应该遵守，违规影响质量
->
-> **记忆口诀**:
-> - CRITICAL → 生存问题
-> - IMPORTANT → 质量问题
->
-> **示例**:
-> - CRITICAL: 不复制歌词（法律风险）
-> - IMPORTANT: 提供详细回答（用户体验）
-> </details>
-
 ---
 
 ### 2. MUST | 必须
@@ -160,23 +142,6 @@ related_docs:
 > | xAI | "should cite" | 中 |
 >
 > **观察**: 大写程度反映强制程度
-
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: MUST vs MUST NOT?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **MUST** = 必须做正面行为<br>
-> **MUST NOT** = 必须不做负面行为
->
-> **示例**:
-> - MUST cite sources → 必须引用
-> - MUST NOT reproduce lyrics → 必须不复制歌词
->
-> **强度相同**: 都是 100% 强制
-> **方向相反**: 正面要求 vs 负面禁止
-> </details>
 
 ---
 
@@ -223,22 +188,6 @@ related_docs:
 > 设计理念: 某些行为没有例外空间
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: NEVER vs "do not"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **NEVER** = 绝对禁止，无例外<br>
-> **do not** = 强烈禁止，极少例外
->
-> **场景对比**:
-> - NEVER: 复制歌词 → 永远不做
-> - do not: 使用过多引号 → 通常不做，特殊情况可能需要
->
-> **记忆提示**: NEVER = 大写强调 = 零容忍
-> </details>
-
 ---
 
 ### 4. ALWAYS | 总是
@@ -283,21 +232,6 @@ related_docs:
 > 总效果: 最高强制程度 + 最高一致性 + 适配性要求
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: ALWAYS vs "consistently"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **ALWAYS** = 100%，任何情况<br>
-> **consistently** = 高度一致，允许少数例外
->
-> **示例**:
-> - ALWAYS cite: 每次引用，无一例外
-> - consistently cite: 几乎每次引用，极少数情况可能不引用
->
-> **使用建议**: ALWAYS 用于核心规则，consistently 用于质量标准
-> </details>
 
 ---
 
@@ -353,27 +287,6 @@ related_docs:
 > → 每次响应都必须，即使是"2+2=?"也要思考
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: 何时使用 strongly vs MUST?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **MUST**: 安全、法律、核心功能
-> - NEVER reproduce lyrics
-> - MUST use citations
-> - MUST NOT help with illegal acts
->
-> **strongly**: 最佳实践、行为建议
-> - strongly consider thinking blocks
-> - strongly prefer specific keywords
-> - strongly recommend being helpful
->
-> **判断标准**: 违反是否导致严重后果？
-> - 是 → MUST
-> - 否 → strongly
-> </details>
-
 ---
 
 ### 6. should | 应该
@@ -420,23 +333,6 @@ related_docs:
 > 设计理念: should 是默认行为，可合理例外
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: should vs strongly prefer?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **should** = 一般建议，60-70% 强度<br>
-> **strongly prefer** = 强烈偏好，80-90% 强度
->
-> **示例**:
-> - should: "should be concise" → 通常简洁，复杂主题可详细
-> - strongly: "strongly prefer specific keywords" → 强烈建议用具体词
->
-> **使用建议**:
-> - should: 风格和偏好
-> - strongly: 影响质量的行为
-> </details>
 
 ---
 
@@ -482,21 +378,6 @@ related_docs:
 > 设计理念: may 赋予 AI 自主权
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: may vs can?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **may** = 允许选择（正式）<br>
-> **can** = 能够做到（能力）
->
-> **示例**:
-> - may use web_search → 被允许使用搜索工具
-> - can use web_search → 有能力使用搜索工具
->
-> **系统提示词倾向**: 使用 may（更正式）
-> </details>
 
 ---
 
@@ -527,24 +408,6 @@ related_docs:
 > 2. 扩展信息: "optional: include references"
 > 3. 可选步骤: "optional: verify with user"
 > ```
-
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: optional vs may?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **optional** = 功能标记（名词/形容词）<br>
-> **may** = 行为许可（动词）
->
-> **示例**:
-> - optional: include examples（这是可选功能）
-> - may: include examples（可以包含示例）
->
-> **使用差异**:
-> - optional: 描述功能属性
-> - may: 描述行为许可
-> </details>
 
 ---
 

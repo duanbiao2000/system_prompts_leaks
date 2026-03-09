@@ -108,22 +108,6 @@ related_docs:
 > = 清晰的行为边界
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: unless vs "except if"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **unless** = "如果不"（单一条件）<br>
-> **except if** = "除了如果"（明确排除）
->
-> **示例**:
-> - unless asked: 如果不问就不做（简洁）
-> - except if asked: 除了问的情况都不做（强调排除）
->
-> **系统提示词倾向**: unless 更简洁直接
-> </details>
-
 ---
 
 ### 2. only | 只有
@@ -167,22 +151,6 @@ related_docs:
 > - 明确用途
 > - 限制范围
 > ```
-
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: only vs "solely"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **only** = 一般限制，常用<br>
-> **solely** = 强调排他性，正式
->
-> **示例**:
-> - only: "only for reference" → 只用于参考
-> - solely: "solely for reference" → 专门/仅仅用于参考
->
-> **系统提示词倾向**: only 更自然，solely 更强调
-> </details>
 
 ---
 
@@ -409,21 +377,6 @@ related_docs:
 > - 允许根据需求调整
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: approximately vs "roughly"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **approximately** = 大约，正式且精确<br>
-> **roughly** = 粗略，更不精确
->
-> **示例**:
-> - approximately 5: 约5次 (4-6次)
-> - roughly 5: 粗略5次 (3-7次)
->
-> **系统提示词倾向**: approximately 更精确可控
-> </details>
 
 ---
 
@@ -527,22 +480,6 @@ related_docs:
 > 设计理念: within 是"不超过"的精确表达
 > ```
 
-> [!question] 闪卡练习 | Flashcard Exercise
-> **Q**: within vs "under"?
->
-> <details>
-> <summary>查看答案</summary>
->
-> **within** = ≤ (小于等于，包括边界)<br>
-> **under** = < (严格小于，不包括边界)
->
-> **示例**:
-> - within 15: 15词可以
-> - under 15: 最多14词
->
-> **系统提示词倾向**: within 更常用，因为更自然
-> </details>
-
 ---
 
 ## 📊 边界类型对比 | Boundary Type Comparison
@@ -558,12 +495,12 @@ related_docs:
 
 ### 数量边界 | Quantity Boundaries
 
-| 词汇 | 类型 | 严格度 | 典型用法 |
-|:-----|:----:|:------:|:---------|
-| maximum | 硬上限 | 最高 | "maximum 16000 tokens" |
-| at most | 软上限 | 高 | "at most 15 words" |
-| minimum | 硬下限 | 最高 | "minimum 2 sources" |
-| at least | 软下限 | 高 | "at least 2 sources" |
+| 词汇       | 类型  | 严格度 | 典型用法                   |
+| :------- | :-: | :-: | :--------------------- |
+| maximum  | 硬上限 | 最高  | "maximum 16000 tokens" |
+| at most  | 软上限 |  高  | "at most 15 words"     |
+| minimum  | 硬下限 | 最高  | "minimum 2 sources"    |
+| at least | 软下限 |  高  | "at least 2 sources"   |
 
 ### 近似边界 | Approximate Boundaries
 
@@ -614,33 +551,6 @@ related_docs:
 1. 工具调用次数范围
 2. 引用长度范围
 3. 响应长度建议
-
-<details>
-<summary>查看答案</summary>
-
-**答案**:
-
-```markdown
-1. 工具调用次数范围:
-   "Use between minimum 2 and maximum 10 tool calls,
-    approximately 5 for simple queries"
-
-2. 引用长度范围:
-   "Each quote must be within 15 words,
-    at most ONE quote per response"
-
-3. 响应长度建议:
-   "Aim for approximately 200-300 words,
-    unless the user explicitly requests more detail"
-
-**组合原则**:
-- minimum + maximum = 硬性范围
-- approximately = 近似指导
-- unless = 条件例外
-```
-
-</details>
-
 ---
 
 ### 练习 3: 修改改进 | Improvement
@@ -653,23 +563,6 @@ related_docs:
 3. "Only use it for reference"
 4. "About 100 words"
 5. "No more than 2 quotes"
-
-<details>
-<summary>查看答案</summary>
-
-**答案**:
-
-| 原文 | 改进 | 使用的边界词 |
-|:-----|:-----|:------------:|
-| "Use 5 tool calls" | "Use approximately 5 tool calls" | approximately |
-| "Don't search if you know" | "Don't search unless uncertain" | unless |
-| "Only use for reference" | "only for your reference" | only |
-| "About 100 words" | "within approximately 100 words" | within, approximately |
-| "No more than 2 quotes" | "at most ONE short quote" | at most |
-
-**改进原则**: 明确边界类型和强度
-</details>
-
 ---
 
 ### 练习 4: 逻辑转换 | Logic Transformation
